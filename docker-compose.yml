@@ -1,25 +1,42 @@
-# version: '3.8'
+version: '3.8'
+
 services:
-  backend:
-    build: ./Back End
-    ports:
-      - "8082:8082"
+  db:
+    image: mysql:8.0
+    container_name: mysql-db
+    restart: always
     environment:
-      - SPRING_PROFILES_ACTIVE=prod
+      MYSQL_ROOT_PASSWORD: shaik
+      MYSQL_DATABASE: cropmaster
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+  backend:
+    build: ./backend
+    container_name: spring-backend
+    restart: always
     depends_on:
       - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/cropmaster
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: shaik
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
+      SERVER_PORT: 8082
+    ports:
+      - "8082:8082"
 
   frontend:
-    build: ./Front End
+    build: ./frontend
+    container_name: react-frontend
+    restart: always
     ports:
-      - "5173:80"
+      - "3000:80"
     depends_on:
       - backend
 
-  db:
-    image: mysql:8.0
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: agriculture
-    ports:
-      - "3306:3306"
+volumes:
+  db_data:
