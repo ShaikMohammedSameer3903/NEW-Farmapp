@@ -8,6 +8,15 @@ pipeline {
             }
         }
 
+        stage('Build Backend JAR') {
+            steps {
+                bat '''
+                    cd "Back End"
+                    mvnw.cmd clean package
+                '''
+            }
+        }
+
         stage('Build & Run with Docker Compose') {
             steps {
                 bat '''
