@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  backend:
+    build: ./Back End
+    ports:
+      - "8082:8082"
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+    depends_on:
+      - db
+
+  frontend:
+    build: ./Front End
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: agriculture
+    ports:
+      - "3306:3306"

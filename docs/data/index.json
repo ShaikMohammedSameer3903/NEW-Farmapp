@@ -1,0 +1,30 @@
+{
+    "team": [
+        {
+            "name": "PREMAWANSHA L M A H",
+            "email": "e19300@eng.pdn.ac.lk",
+            "eNumber": "E/19/300"
+        },
+        {
+            "name": "PREMACHANDRA K H J D",
+            "email": "e19295@eng.pdn.ac.lk",
+            "eNumber": "E/19/295"
+        },
+        {
+            "name": "PUSHPAKUMARA R M S P",
+            "email": "e19304@eng.pdn.ac.lk",
+            "eNumber": "E/19/304"
+        }
+    ],
+    "supervisors": [
+        {
+            "name": "Dr. Manjula Sandirigama",
+            "email": "manjula.sandirigama@eng.pdn.ac.lk"
+        },
+        {
+            "name": "Dr. Eng. Kamalanath Samarakoon",
+            "email": "kamalanath@eng.pdn.ac.lk"
+        }
+    ],
+    "tags": ["co226","Database Design"]
+}
