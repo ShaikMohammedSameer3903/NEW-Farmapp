@@ -15,6 +15,7 @@ Crop Master is an Agriculture Management System designed to streamline and optim
 
 ## Features
 
+
 ---
 
 1. User Authentication: Secure login and registration for both farmers and landowners.
