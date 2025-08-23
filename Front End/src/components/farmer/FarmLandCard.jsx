@@ -38,11 +38,11 @@ function FarmLandCard({
     const handleViewPlantClick = async () => {
         try {
             // Fetch the cropID from the first URL
-            const response = await fetch(`http://localhost:8080/farmland/getCrop/${farmlandID}`);
+            const response = await fetch(`/api/farmland/getCrop/${farmlandID}`);
             // Assuming the response only contains the cropID as an integer value
             const cropID = await response.text();
             // Fetch the plant details using the received crop ID
-            const plantResponse = await fetch(`http://localhost:8080/crop/getbyID/${cropID}`);
+            const plantResponse = await fetch(`/api/crop/getbyID/${cropID}`);
             // Assuming the plantResponse is a JSON containing plant details
             const plantData = await plantResponse.json();
             setPlantDetails(plantData);
@@ -53,7 +53,7 @@ function FarmLandCard({
     };
 
     const handleViewSoilClick = () => {
-        fetch(`http://localhost:8080/soil/getDetails/${farmlandID}`)
+        fetch(`/api/soil/getDetails/${farmlandID}`)
             .then((response) => response.json())
             .then((data) => {
                 setSoilDetails(data);
@@ -65,7 +65,7 @@ function FarmLandCard({
     };
 
     const handleViewWeatherClick = () => {
-        fetch(`http://localhost:8080/weather/getDetails/${farmlandID}`)
+        fetch(`/api/weather/getDetails/${farmlandID}`)
             .then((response) => response.json())
             .then((data) => {
                 setWeatherDetails(data);
@@ -89,7 +89,7 @@ function FarmLandCard({
     };
 
     const handleViewDiseaseClick = () => {
-        fetch(`http://localhost:8080/hostcrop/getDisease/${farmlandID}`)
+        fetch(`/api/hostcrop/getDisease/${farmlandID}`)
             .then((response) => response.json())
             .then((data) => {
                 setDiseaseData(data);
@@ -105,7 +105,7 @@ function FarmLandCard({
     };
 
     const handleViewChemicalClick = () => {
-        fetch(`http://localhost:8080/chemicalusage/getChemical/${farmlandID}`)
+        fetch(`/api/chemicalusage/getChemical/${farmlandID}`)
             .then((response) => response.json())
             .then((data) => {
                 setChemicalData(data);
@@ -121,7 +121,7 @@ function FarmLandCard({
     };
 
     const handleViewMachineryClick = () => {
-        fetch(`http://localhost:8080/machineryusage/getMachinery/${farmlandID}`)
+        fetch(`/api/machineryusage/getMachinery/${farmlandID}`)
             .then((response) => response.json())
             .then((data) => {
                 setMachineryData(data);

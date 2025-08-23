@@ -27,28 +27,28 @@ const FarmlandDetailsCard = ({ farmlands }) => {
     useEffect(() => {
         // Fetch weather data
         if (selectedFarmland) {
-            fetch(`http://localhost:8082/weather/getDetails/${selectedFarmland.farmlandID}`)
+            fetch(`/api/weather/getDetails/${selectedFarmland.farmlandID}`)
                 .then((response) => response.json())
                 .then((data) => setWeatherData(data))
                 .catch((error) => console.error('Error fetching weather data:', error));
 
             // Fetch soil data
-            fetch(`http://localhost:8082/soil/getDetails/${selectedFarmland.farmlandID}`)
+            fetch(`/api/soil/getDetails/${selectedFarmland.farmlandID}`)
                 .then((response) => response.json())
                 .then((data) => setSoilData(data))
                 .catch((error) => console.error('Error fetching soil data:', error));
 
-            fetch(`http://localhost:8082/hostcrop/getDisease/${selectedFarmland.farmlandID}`)
+            fetch(`/api/hostcrop/getDisease/${selectedFarmland.farmlandID}`)
                 .then((response) => response.json())
                 .then((data) => setDiseaseData(data))
                 .catch((error) => console.error('Error fetching soil data:', error));
 
-            fetch(`http://localhost:8082/chemicalusage/getChemical/${selectedFarmland.farmlandID}`)
+            fetch(`/api/chemicalusage/getChemical/${selectedFarmland.farmlandID}`)
                 .then((response) => response.json())
                 .then((data) => setChemicalData(data))
                 .catch((error) => console.error('Error fetching soil data:', error));
 
-            fetch(`http://localhost:8082/machineryusage/getMachinery/${selectedFarmland.farmlandID}`)
+            fetch(`/api/machineryusage/getMachinery/${selectedFarmland.farmlandID}`)
                 .then((response) => response.json())
                 .then((data) => setMachineData(data))
                 .catch((error) => console.error('Error fetching soil data:', error));

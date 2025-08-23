@@ -84,7 +84,7 @@ const Home = () => {
 
     const handleSignIn = async () => {
         try {
-            const response = await fetch(`http://localhost:8082/${userType}/login`, {
+            const response = await fetch(`/api/${userType}/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

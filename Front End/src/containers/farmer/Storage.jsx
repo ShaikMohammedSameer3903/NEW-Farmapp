@@ -28,7 +28,7 @@ const AddStorageMethod = () => {
 
     const handleSubmit = async () => {
         try {
-            const response = await fetch('http://localhost:8082/storage/addNew', {
+            const response = await fetch('/api/storage/addNew', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ const AddStorageMethod = () => {
     useEffect(() => {
         const fetchStorageMethods = async () => {
             try {
-                const response = await fetch('http://localhost:8082/storage/getAll');
+                const response = await fetch('/api/storage/getAll');
                 if (!response.ok) {
                     throw new Error('Failed to fetch storage methods');
                 }
@@ -71,7 +71,7 @@ const AddStorageMethod = () => {
 
         const fetchFarmlands = async () => {
             try {
-                const response = await fetch(`http://localhost:8082/farmland/getAll/${nic}`);
+                const response = await fetch(`/api/farmland/getAll/${nic}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch farmlands');
                 }
@@ -89,7 +89,7 @@ const AddStorageMethod = () => {
     const handleAssignStorage = async () => {
         try {
             const response = await fetch(
-                `http://localhost:8082/farmland/updateStorage/${selectedFarmland}/${selectedStorageMethod}`,
+                `/api/farmland/updateStorage/${selectedFarmland}/${selectedStorageMethod}`,
                 {
                     method: 'PUT',
                 }

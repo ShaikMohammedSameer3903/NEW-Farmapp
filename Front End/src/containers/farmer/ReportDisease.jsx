@@ -26,7 +26,7 @@ export default function ReportDisease() {
     useEffect(() => {
         const fetchFarmLandData = async () => {
             try {
-                const response = await fetch(`http://localhost:8082/farmland/getAll/${nic}`);
+                const response = await fetch(`/api/farmland/getAll/${nic}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch farmer data');
                 }
@@ -44,7 +44,7 @@ export default function ReportDisease() {
     useEffect(() => {
         const fetchDiseaseData = async () => {
             try {
-                const response = await fetch('http://localhost:8082/disease/getAll');
+                const response = await fetch('/api/disease/getAll');
                 if (!response.ok) {
                     throw new Error('Failed to fetch disease data');
                 }
@@ -71,7 +71,7 @@ export default function ReportDisease() {
         };
 
         // Make the POST request using fetch
-        fetch('http://localhost:8082/disease/addNew', {
+        fetch('/api/disease/addNew', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -107,7 +107,7 @@ export default function ReportDisease() {
         };
 
         // Make the POST request using fetch
-        fetch('http://localhost:8082/hostcrop/addNew', {
+        fetch('/api/hostcrop/addNew', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

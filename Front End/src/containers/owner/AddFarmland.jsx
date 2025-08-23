@@ -35,18 +35,18 @@ const AddFarmland = () => {
 
     useEffect(() => {
         // Fetch list of farmers
-        fetch('http://localhost:8082/farmer/getAll')
+        fetch('/api/farmer/getAll')
             .then(response => response.json())
             .then(data => setFarmers(data))
             .catch(error => console.error(error));
 
         // Fetch list of farmlands with no assigned NIC
-        fetch('http://localhost:8082/farmland/noNic')
+        fetch('/api/farmland/noNic')
             .then(response => response.json())
             .then(data => setFarmlands(data))
             .catch(error => console.error(error));
 
-        fetch('http://localhost:8082/farmland/nic')
+        fetch('/api/farmland/nic')
             .then(response => response.json())
             .then(data => setNicFarmlands(data))
             .catch(error => console.error(error));
@@ -60,7 +60,7 @@ const AddFarmland = () => {
             location: location,
         };
 
-        fetch('http://localhost:8082/farmland/addNew', {
+        fetch('/api/farmland/addNew', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -84,7 +84,7 @@ const AddFarmland = () => {
         // Perform logic to assign farmer to farmland using selectedFarmer and selectedFarmland
         // For example, you can send an API request to the backend to update the assignment.
         if (selectedFarmer && selectedFarmland) {
-            const url = `http://localhost:8082/farmland/updateFarmer/${selectedFarmland}/${selectedFarmer}`;
+            const url = `/api/farmland/updateFarmer/${selectedFarmland}/${selectedFarmer}`;
             fetch(url, { method: 'PUT' })
                 .then(response => {
                     if (response.ok) {
@@ -105,7 +105,7 @@ const AddFarmland = () => {
         // Perform logic to assign farmer to farmland using selectedFarmer and selectedFarmland
         // For example, you can send an API request to the backend to update the assignment.
         if (selectedAssignFarmland && selectedAssignFarmer) {
-            const url = `http://localhost:8082/farmland/updateFarmer/${selectedAssignFarmland}/${selectedAssignFarmer}`;
+            const url = `/api/farmland/updateFarmer/${selectedAssignFarmland}/${selectedAssignFarmer}`;
             fetch(url, { method: 'PUT' })
                 .then(response => {
                     if (response.ok) {

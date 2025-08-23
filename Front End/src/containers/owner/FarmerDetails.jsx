@@ -8,7 +8,7 @@ const FarmerDetails = () => {
 
     useEffect(() => {
         // Fetch farmer data from API
-        fetch('http://localhost:8082/farmer/getAll')
+        fetch('/api/farmer/getAll')
             .then(response => response.json())
             .then(data => setFarmers(data))
             .catch(error => console.error('Error fetching farmers:', error));

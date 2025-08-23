@@ -38,7 +38,7 @@ const AddChemical = () => {
   useEffect(() => {
     const fetchFarmLandData = async () => {
       try {
-        const response = await fetch(`http://localhost:8082/farmland/getAll/${nic}`);
+        const response = await fetch(`/api/farmland/getAll/${nic}`);
         if (!response.ok) {
           throw new Error('Failed to fetch farmer data');
         }
@@ -56,7 +56,7 @@ const AddChemical = () => {
   useEffect(() => {
     const fetchChemicalData = async () => {
       try {
-        const response = await fetch('http://localhost:8082/chemical/getAll');
+        const response = await fetch('/api/chemical/getAll');
         if (!response.ok) {
           throw new Error('Failed to fetch farmer data');
         }
@@ -80,7 +80,7 @@ const AddChemical = () => {
 
   const handleAddChemical = async () => {
     try {
-      const response = await fetch('http://localhost:8082/chemical/addNew', {
+      const response = await fetch('/api/chemical/addNew', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -110,7 +110,7 @@ const AddChemical = () => {
     };
 
     // Make the POST request using fetch
-    fetch('http://localhost:8082/chemicalusage/addNew', {
+    fetch('/api/chemicalusage/addNew', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -20,7 +20,7 @@ function SideNav() {
     useEffect(() => {
         const fetchOwnerName = async () => {
             try {
-                const response = await fetch(`http://localhost:8080/owner/${nic}`);
+                const response = await fetch(`/api/owner/${nic}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch farmer name');
                 }

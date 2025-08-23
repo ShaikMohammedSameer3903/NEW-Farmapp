@@ -25,7 +25,7 @@ const FarmerHome = () => {
     useEffect(() => {
         const fetchCropedData = async () => {
             try {
-                const response = await fetch(`http://localhost:8080/farmland/croped/${nic}`);
+                const response = await fetch(`/api/farmland/croped/${nic}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch data');
                 }
@@ -42,7 +42,7 @@ const FarmerHome = () => {
     useEffect(() => {
         const fetchUncropedData = async () => {
             try {
-                const response = await fetch(`http://localhost:8080/farmland/uncroped/${nic}`);
+                const response = await fetch(`/api/farmland/uncroped/${nic}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch data');
                 }
@@ -59,7 +59,7 @@ const FarmerHome = () => {
     useEffect(() => {
         const fetchCrops = async () => {
             try {
-                const response = await fetch('http://localhost:8080/crop/getAll');
+                const response = await fetch('/api/crop/getAll');
                 if (!response.ok) {
                     throw new Error('Failed to fetch crop data');
                 }
@@ -83,7 +83,7 @@ const FarmerHome = () => {
         };
 
         // Make the POST request using fetch
-        fetch('http://localhost:8080/crop/addNew', {
+        fetch('/api/crop/addNew', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -115,7 +115,7 @@ const FarmerHome = () => {
         }
 
         try {
-            const response = await fetch(`http://localhost:8080/farmland/updateCrop/${selectedFarmland}/${selectedCrop}`, {
+            const response = await fetch(`/api/farmland/updateCrop/${selectedFarmland}/${selectedCrop}`, {
                 method: 'PUT', // Use the appropriate HTTP method (e.g., PUT, POST)
             });
 

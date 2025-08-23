@@ -23,7 +23,7 @@ const FarmerCard = ({ farmer }) => {
 
     const handleOpenModal = () => {
         // Fetch farmland data for the farmer from API
-        fetch(`http://localhost:8080/farmland/getAll/${farmer.nic}`)
+        fetch(`/api/farmland/getAll/${farmer.nic}`)
             .then(response => response.json())
             .then(data => setFarmlands(data))
             .catch(error => console.error('Error fetching farmlands:', error));

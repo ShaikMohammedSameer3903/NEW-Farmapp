@@ -72,7 +72,7 @@ const SignupOwner = () => {
         }
 
         try {
-            const response = await fetch(`http://localhost:8082/owner/addNew`, {
+            const response = await fetch(`/api/owner/addNew`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

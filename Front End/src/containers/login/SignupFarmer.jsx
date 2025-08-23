@@ -69,7 +69,7 @@ const SignupFarmer = () => {
         }
 
         try {
-            const response = await fetch(`http://localhost:8082/farmer/addNew`, {
+            const response = await fetch(`/api/farmer/addNew`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

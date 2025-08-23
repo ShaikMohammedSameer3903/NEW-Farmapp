@@ -36,7 +36,7 @@ const AddMachine = () => {
     useEffect(() => {
         const fetchFarmLandData = async () => {
             try {
-                const response = await fetch(`http://localhost:8082/farmland/getAll/${nic}`);
+                const response = await fetch(`/api/farmland/getAll/${nic}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch farmer data');
                 }
@@ -54,7 +54,7 @@ const AddMachine = () => {
     useEffect(() => {
         const fetchMachineryData = async () => {
             try {
-                const response = await fetch('http://localhost:8082/machinery/getAll');
+                const response = await fetch('/api/machinery/getAll');
                 if (!response.ok) {
                     throw new Error('Failed to fetch farmer data');
                 }
@@ -79,7 +79,7 @@ const AddMachine = () => {
 
     const handleAddMachine = async () => {
         try {
-            const response = await fetch('http://localhost:8082/machinery/addNew', {
+            const response = await fetch('/api/machinery/addNew', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -109,7 +109,7 @@ const AddMachine = () => {
         };
 
         // Make the POST request using fetch
-        fetch('http://localhost:8082/machineryusage/addNew', {
+        fetch('/api/machineryusage/addNew', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

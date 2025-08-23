@@ -16,14 +16,14 @@ function FarmDetailsPopup({ open, onClose, type, farmlandID, cropID }) {
             let url = '';
 
             if (type === 'soil') {
-                url = `http://localhost:8080/soil/getDetails/${farmlandID}`;
+                url = `/api/soil/getDetails/${farmlandID}`;
             } else if (type === 'weather') {
-                url = `http://localhost:8080/weather/getDetails/${farmlandID}`;
+                url = `/api/weather/getDetails/${farmlandID}`;
             } else if (type === 'plant') {
-                const response = await fetch(`http://localhost:8080/farmland/getCrop/${farmlandID}`);
+                const response = await fetch(`/api/farmland/getCrop/${farmlandID}`);
                 const data = await response.json();
                 const cropId = data.cropId;
-                url = `http://localhost:8080/crop/getbyID/${cropId}`;
+                url = `/api/crop/getbyID/${cropId}`;
             }
 
             const response = await fetch(url);
