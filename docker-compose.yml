@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   db:
     image: mysql:8.0
@@ -14,7 +12,7 @@ services:
       - db_data:/var/lib/mysql
 
   backend:
-    build: ./backend
+    build: ./Back End
     container_name: spring-backend
     restart: always
     depends_on:
@@ -30,7 +28,7 @@ services:
       - "8082:8082"
 
   frontend:
-    build: ./frontend
+    build: ./Front End
     container_name: react-frontend
     restart: always
     ports:
