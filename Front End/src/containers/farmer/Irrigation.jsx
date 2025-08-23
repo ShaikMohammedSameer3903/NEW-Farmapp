@@ -34,7 +34,7 @@ const AddIrrigationMethod = () => {
   useEffect(() => {
     const fetchFarmers = async () => {
       try {
-        const response = await fetch('http://localhost:8080/farmer/getAll');
+        const response = await fetch('http://localhost:8082/farmer/getAll');
         if (!response.ok) {
           throw new Error('Failed to fetch farmer data');
         }
@@ -52,7 +52,7 @@ const AddIrrigationMethod = () => {
   useEffect(() => {
     const fetchFarmlands = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/farmland/getAll/${nic}`);
+        const response = await fetch(`http://localhost:8082/farmland/getAll/${nic}`);
         if (!response.ok) {
           throw new Error('Failed to fetch farmland data');
         }
@@ -70,7 +70,7 @@ const AddIrrigationMethod = () => {
   useEffect(() => {
     const fetchIrrigations = async () => {
       try {
-        const response = await fetch('http://localhost:8080/irrigation/getAll');
+        const response = await fetch('http://localhost:8082/irrigation/getAll');
         if (!response.ok) {
           throw new Error('Failed to fetch farmer data');
         }
@@ -95,7 +95,7 @@ const AddIrrigationMethod = () => {
 
   const handleAddIrrigationMethod = async () => {
     try {
-      const response = await fetch('http://localhost:8080/irrigation/addNew', {
+      const response = await fetch('http://localhost:8082/irrigation/addNew', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -118,7 +118,7 @@ const AddIrrigationMethod = () => {
   const handleAssignIrrigation = async () => {
     try {
       const response = await fetch(
-          `http://localhost:8080/farmland/updateIrrigation/${selectedFarmland}/${selectedIrrigation}`,
+          `http://localhost:8082/farmland/updateIrrigation/${selectedFarmland}/${selectedIrrigation}`,
           {
             method: 'PUT',
           }

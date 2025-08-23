@@ -27,7 +27,7 @@ function SideNav() {
     useEffect(() => {
         const fetchFarmerName = async () => {
             try {
-                const response = await fetch(`http://localhost:8080/farmer/${nic}`);
+                const response = await fetch(`/api/farmer/${nic}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch farmer name');
                 }

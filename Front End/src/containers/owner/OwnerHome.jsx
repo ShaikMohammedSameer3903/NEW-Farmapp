@@ -13,14 +13,14 @@ const Home = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:8082/farmland/getAll')
+        fetch('/api/farmland/getAll')
             .then((response) => response.json())
             .then((data) => setFarmlands(data))
             .catch((error) => console.error('Error fetching farmlands:', error));
     }, []);
 
     useEffect(() => {
-        fetch('http://localhost:8082/farmer/getAll')
+        fetch('/api/farmer/getAll')
             .then((response) => response.json())
             .then((data) => setFarmers(data))
             .catch((error) => console.error('Error fetching farmlands:', error));
