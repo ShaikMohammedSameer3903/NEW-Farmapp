@@ -1,24 +1,14 @@
-services:
-  # db:
-  #   image: mysql:8.0
-  #   container_name: mysql-db
-  #   restart: always
-  #   environment:
-  #     MYSQL_ROOT_PASSWORD: shaik
-  #     MYSQL_DATABASE: cropmaster
-  #   ports:
-  #     - "3307:3306"
-  #   volumes:
-  #     - db_data:/var/lib/mysql
+version: '3.8'
 
+services:
   backend:
     build: ./Back End
     container_name: spring-backend
     restart: always
-    depends_on:
-      - db
+    # Removed "depends_on: - db"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/cropmaster
+      # Use your local DB connection instead of docker service "db"
+      SPRING_DATASOURCE_URL: jdbc:mysql://host.docker.internal:3306/cropmaster
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: shaik
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
@@ -35,6 +25,3 @@ services:
       - "3000:80"
     depends_on:
       - backend
-
-volumes:
-  db_data:
