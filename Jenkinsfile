@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/ShaikMohammedSameer3903/NEW-Farmapp.git'
+                git branch: 'main', url: 'https://shaiksameer3909:Shaiksameer/3909@github.com/ShaikMohammedSameer3903/NEW-Farmapp.git'
             }
         }
 
