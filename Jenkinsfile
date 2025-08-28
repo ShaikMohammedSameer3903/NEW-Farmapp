@@ -10,10 +10,11 @@ pipeline {
 
         stage('Build & Run with Docker Compose') {
             steps {
+                // Using bat since it's Windows
                 bat '''
-                    docker-compose down
-                    docker-compose build
-                    docker-compose up -d
+                    docker-compose -f docker-compose.yml down
+                    docker-compose -f docker-compose.yml build
+                    docker-compose -f docker-compose.yml up -d
                 '''
             }
         }
@@ -21,8 +22,7 @@ pipeline {
 
     post {
         always {
-            // Changed sh to bat for Windows compatibility
-            bat 'docker-compose ps'
+            bat 'docker-compose -f docker-compose.yml ps'
         }
     }
 }
